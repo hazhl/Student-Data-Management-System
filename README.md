@@ -124,3 +124,21 @@ To shut down and wipe the database volume (resetting it to the default seed data
 ```bash
 docker compose down -v
 ```
+
+---
+
+## 🐳 Docker Hub Pull & Run Instructions
+
+To pull and run the pre-built application image from Docker Hub, use the following commands:
+
+### Step 1: Pull the image
+```bash
+docker pull hazhl/student-docker-21028137:latest
+```
+
+### Step 2: Run the standalone container
+Make sure you have created your local `.env` configuration file first, then run:
+```bash
+docker run -d -p 8000:5000 --env-file .env hazhl/student-docker-21028137:latest
+```
+
