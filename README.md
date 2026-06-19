@@ -102,7 +102,16 @@ Open your browser and navigate to:
 ├── docker-compose.yml             # Service orchestration manifest
 └── README.md                      # Documentation
 ```
+---
 
+## 📐 Architecture & Layout Justifications
+
+While the project closely follows the requested directory structure, a few necessary deviations were made in the `app/` directory to adhere to Python/Flask industry standards:
+
+* **No `src/` folder:** Instead of splitting logic into `routes/` and `models/`, the application logic is centralized in `app.py` to maintain a lightweight, efficient microservice architecture.
+* **`template/` instead of `views/`:** Flask's `render_template()` function natively looks for a folder named `template/` (or `templates/`) by default, so this naming convention was kept to avoid unnecessary configuration overrides.
+* **Added `static/` directory:** This was introduced to properly serve the custom CSS and UI assets required for the frontend design.
+* **Added `requirements.txt`:** This file was strictly necessary to allow the Docker container to install SQLAlchemy, PyMySQL, and Flask during the build process.
 ---
 
 ## 🧹 Stopping and Cleaning Up
