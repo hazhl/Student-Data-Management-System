@@ -1,3 +1,4 @@
+
 # Academix — Student Data Management System
 
 A fully containerized, three-tier CRUD web application for managing student records, course catalogs, and class enrollments. Built using **Python Flask**, **SQLAlchemy ORM**, **MySQL 8.0**, and **Nginx** as a reverse proxy.
