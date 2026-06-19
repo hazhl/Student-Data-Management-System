@@ -123,12 +123,13 @@ To run the pre-built application using the image from Docker Hub:
 
 ### Step 1: Pull the image
 ```bash
-docker pull hazhl/student-docker-21028137:latest
+docker pull 8exd9hrsx/student-docker-21028137:latest
 ```
+
 
 ### Step 2: Run the standalone container
 Make sure you have created your local `.env` configuration file first, then run:
 ```bash
-docker run -d -p 8000:5000 --env-file .env hazhl/student-docker-21028137:latest
+docker run -d -p 8000:5000 --env-file .env 8exd9hrsx/student-docker-21028137:latest
 ```
 
