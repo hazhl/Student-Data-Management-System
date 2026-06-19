@@ -1,3 +1,4 @@
+
 # Academix — Student Data Management System
 
 A fully containerized, three-tier CRUD web application for managing student records, course catalogs, and class enrollments. Built using **Python Flask**, **SQLAlchemy ORM**, **MySQL 8.0**, and **Nginx** as a reverse proxy.
@@ -8,10 +9,7 @@ A fully containerized, three-tier CRUD web application for managing student reco
 
 The application is fully orchestrated using **Docker Compose** and consists of three isolated services:
 
-```mermaid
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/38c17408-9647-45fe-a84a-ef99e0dc61d3" />
-
-```
+<img width="2816" height="1536" alt="Gemini_Generated_Image_oljkhnoljkhnoljk" src="https://github.com/user-attachments/assets/f9f9070e-a54a-4b9a-ab58-e655f7f045a9" />
 
 1.  **Nginx (Web Server & Reverse Proxy)**:
     *   Listens on port `80` (only exposed port on the host machine).
