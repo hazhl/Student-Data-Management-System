@@ -9,7 +9,8 @@ A fully containerized, three-tier CRUD web application for managing student reco
 
 The application is fully orchestrated using **Docker Compose** and consists of three isolated services:
 
-<img width="2816" height="1536" alt="Gemini_Generated_Image_oljkhnoljkhnoljk" src="https://github.com/user-attachments/assets/f9f9070e-a54a-4b9a-ab58-e655f7f045a9" />
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/a75ac7eb-02a4-49d0-88f1-b5eff2ffd20e" />
+
 
 1.  **Nginx (Web Server & Reverse Proxy)**:
     *   Listens on port `80` (only exposed port on the host machine).
