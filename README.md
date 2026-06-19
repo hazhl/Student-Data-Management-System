@@ -8,22 +8,22 @@ A fully containerized, three-tier CRUD web application for managing student reco
 
 The application is fully orchestrated using **Docker Compose** and consists of three isolated services:
 
-```mermaid
+
 graph TD
     User["User / Web Browser"] -->|HTTP (Port 80)| Nginx["Nginx Reverse Proxy"]
     
-    subgraph Docker Network (frontend)
+ subgraph Docker Network (frontend)
         Nginx -->|Proxy Pass (Port 5000)| Flask["Flask Web Server"]
         Nginx -.->|Serves Static Files| Static["/app/static/"]
     end
     
-    subgraph Docker Network (backend)
+ subgraph Docker Network (backend)
         Flask -->|MySQL Link (Port 3306)| MySQL["MySQL 8.0 Database"]
         MySQL -.->|Volume| DBVolume["mysql_data"]
         MySQL -.->|Init Script| SQLInit["db/init.sql"]
     end
-```
 
+    
 1.  **Nginx (Web Server & Reverse Proxy)**:
     *   Listens on port `80` (only exposed port on the host machine).
     *   Directly serves static assets (CSS, JS, images) from a shared read-only volume.
