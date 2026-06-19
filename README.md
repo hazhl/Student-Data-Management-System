@@ -58,6 +58,7 @@ DB_NAME=student_db
 DB_USER=student_user
 DB_PASSWORD=student_pass
 DB_ROOT_PASSWORD=student_root_pass
+DB_HOST=db
 ```
 
 *Note: A matching `.env` is also located in `app/.env` for local (non-Docker) Flask development.*
@@ -118,7 +119,7 @@ docker compose down -v
 
 ## 🐳 Docker Hub Pull & Run Instructions
 
-To pull and run the pre-built application image from Docker Hub, use the following commands:
+To run the pre-built application using the image from Docker Hub:
 
 ### Step 1: Pull the image
 ```bash
