@@ -7,29 +7,28 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE:      ${DB_NAME}
-      MYSQL_USER:          ${DB_USER}
-      MYSQL_PASSWORD:      ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
-      timeout:  5s
-      retries:  5
+      timeout: 5s
+      retries: 5
     networks:
       - backend
 
   app:
-    build:
-      context: ./app
+    image: 8exd9hrsx/student-docker-21028137:latest
     restart: unless-stopped
     environment:
-      DB_HOST:     db          # Service name, not localhost!
-      DB_PORT:     3306
-      DB_NAME:     ${DB_NAME}
-      DB_USER:     ${DB_USER}
+      DB_HOST: db # Service name, not localhost!
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
     depends_on:
       db:

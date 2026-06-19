@@ -9,9 +9,11 @@ A fully containerized, three-tier CRUD web application for managing student reco
 
 The application is fully orchestrated using **Docker Compose** and consists of three isolated services:
 
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/a75ac7eb-02a4-49d0-88f1-b5eff2ffd20e" />
+
+<img width="2025" height="1205" alt="Gemini_Generated_Image_pexfifpexfifpexf" src="https://github.com/user-attachments/assets/caa782f5-d089-4a29-9d7b-1a0c1dd56f24" />
 
 
+    
 1.  **Nginx (Web Server & Reverse Proxy)**:
     *   Listens on port `80` (only exposed port on the host machine).
     *   Directly serves static assets (CSS, JS, images) from a shared read-only volume.
@@ -57,6 +59,7 @@ DB_NAME=student_db
 DB_USER=student_user
 DB_PASSWORD=student_pass
 DB_ROOT_PASSWORD=student_root_pass
+DB_HOST=db
 ```
 
 *Note: A matching `.env` is also located in `app/.env` for local (non-Docker) Flask development.*
@@ -117,16 +120,17 @@ docker compose down -v
 
 ## 🐳 Docker Hub Pull & Run Instructions
 
-To pull and run the pre-built application image from Docker Hub, use the following commands:
+To run the pre-built application using the image from Docker Hub:
 
 ### Step 1: Pull the image
 ```bash
-docker pull hazhl/student-docker-21028137:latest
+docker pull 8exd9hrsx/student-docker-21028137:latest
 ```
+
 
 ### Step 2: Run the standalone container
 Make sure you have created your local `.env` configuration file first, then run:
 ```bash
-docker run -d -p 8000:5000 --env-file .env hazhl/student-docker-21028137:latest
+docker run -d -p 8000:5000 --env-file .env 8exd9hrsx/student-docker-21028137:latest
 ```
 
