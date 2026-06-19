@@ -1,0 +1,10 @@
+# Exclude git history
+.git
+
+# Exclude virtual environments and cache
+venv/
+__pycache__/
+*.pyc
+
+# CRITICAL: Exclude secrets
+.env

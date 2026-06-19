@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard | Academix{% endblock %}
+
+{% block content %}
+<div class="dashboard-title">
+    <span>📊</span> System Overview
+</div>
+
+<!-- Metrics Overview Grid -->
+<div class="metrics-grid">
+    <a href="/students" class="metric-card">
+        <div class="metric-header">
+            <span class="metric-title">Total Students</span>
+            <span class="metric-icon">👥</span>
+        </div>
+        <div>
+            <div class="metric-value">{{ student_count }}</div>
+            <div class="metric-footer">View and manage enrolled profiles</div>
+        </div>
+    </a>
+
+    <a href="/courses" class="metric-card">
+        <div class="metric-header">
+            <span class="metric-title">Available Courses</span>
+            <span class="metric-icon">📚</span>
+        </div>
+        <div>
+            <div class="metric-value">{{ course_count }}</div>
+            <div class="metric-footer">View academic catalog & credit details</div>
+        </div>
+    </a>
+
+    <a href="/enrollments" class="metric-card">
+        <div class="metric-header">
+            <span class="metric-title">Active Enrollments</span>
+            <span class="metric-icon">📝</span>
+        </div>
+        <div>
+            <div class="metric-value">{{ enrollment_count }}</div>
+            <div class="metric-footer">Track students' registered courses</div>
+        </div>
+    </a>
+</div>
+
+<!-- Welcome Section or Quick Actions -->
+<div class="form-card" style="max-width: 100%;">
+    <h3 style="font-family: var(--font-heading); margin-bottom: 1rem; font-size: 1.5rem;">Welcome to Academix Portal</h3>
+    <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+        This portal allows administrators to perform CRUD actions on the student records, academic course catalog, and enrollment relationships. Simply select a category from the navigation bar above or click on one of the cards to begin.
+    </p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/students" class="btn btn-primary">➕ Manage Students</a>
+        <a href="/courses" class="btn btn-secondary">📕 Manage Courses</a>
+        <a href="/enrollments" class="btn btn-secondary">✏️ Manage Enrollments</a>
+    </div>
+</div>
+{% endblock %}

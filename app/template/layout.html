@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Student Management System for managing students, courses, and course enrollments.">
+    <title>{% block title %}Student Management System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-wrapper">
+            <a href="/" class="logo">
+                <span>🎓</span> Academix
+            </a>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/students" class="nav-link {% if request.path.startswith('/students') %}active{% endif %}">Students</a>
+                    </li>
+                    <li>
+                        <a href="/courses" class="nav-link {% if request.path.startswith('/courses') %}active{% endif %}">Courses</a>
+                    </li>
+                    <li>
+                        <a href="/enrollments" class="nav-link {% if request.path.startswith('/enrollments') %}active{% endif %}">Enrollments</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Flash Messages Container -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert-container" id="alert-container">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        <span>{{ message }}</span>
+                        <button type="button" class="alert-close" onclick="this.parentElement.remove()">&times;</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main class="app-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Academix Student Management System. Built using Flask & MySQL. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Global Scripts -->
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    alert.style.opacity = '0';
+                    alert.style.transform = 'translateX(100%)';
+                    alert.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    setTimeout(() => alert.remove(), 500);
+                }, 5000);
+            });
+        });
+
+        // Generic Confirm Delete Function
+        function confirmDelete(event, itemName) {
+            const confirmed = confirm(`Are you sure you want to delete ${itemName}? This action is permanent and cannot be undone.`);
+            if (!confirmed) {
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
